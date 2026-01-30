@@ -1,0 +1,58 @@
+[
+  {
+    "id": 1,
+    "name": "김보균",
+    "nameEn": "Kim Bo Kyun",
+    "part": "보컬 | Vocal",
+    "image": "/images/members/member-1.jpg"
+  },
+  {
+    "id": 2,
+    "name": "김지원",
+    "nameEn": "Kim Ji Won",
+    "part": "키보드 | Keyboard",
+    "image": "/images/members/member-2.jpg"
+  },
+  {
+    "id": 3,
+    "name": "김태윤",
+    "nameEn": "Kim Tae Yoon",
+    "part": "드럼 | Drum",
+    "image": "/images/members/member-3.jpg"
+  },
+  {
+    "id": 4,
+    "name": "김화윤",
+    "nameEn": "Kim Hwa Yoon",
+    "part": "키보드 | Keyboard",
+    "image": "/images/members/member-4.jpg"
+  },
+  {
+    "id": 5,
+    "name": "박성준",
+    "nameEn": "Park Sung Jun",
+    "part": "기타 | Guitar",
+    "image": "/images/members/member-5.jpg"
+  },
+  {
+    "id": 6,
+    "name": "윤우진",
+    "nameEn": "Yoon Woo Jin",
+    "part": "기타 | Guitar",
+    "image": "/images/members/member-6.jpg"
+  },
+  {
+    "id": 7,
+    "name": "장민욱",
+    "nameEn": "Jang Min Uk",
+    "part": "베이스 | Bass",
+    "image": "/images/members/member-7.jpg"
+  },
+  {
+    "id": 8,
+    "name": "멤버 8",
+    "nameEn": "Member 8",
+    "part": "파트 미정",
+    "image": "/images/members/member-8.jpg"
+  }
+]

@@ -1,0 +1,14 @@
+{
+  "name": "달하늘",
+  "nameEn": "MOONSKY",
+  "description": "직장인밴드 달하늘",
+  "profileImage": "/images/profile/band-profile.jpg",
+  "logoImage": "/images/profile/logo.png",
+  "performance": {
+    "title": "달하늘 공연",
+    "date": "2025. 00. 00 (토)",
+    "time": "19:00",
+    "venue": "공연 장소 미정",
+    "address": "주소 미정"
+  }
+}
