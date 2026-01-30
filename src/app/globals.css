@@ -2,17 +2,24 @@
 
 @theme {
   --font-sans: "Noto Sans KR", sans-serif;
-  --font-display: "Gruppo", sans-serif;
+  --font-display: "Cormorant Garamond", serif;
 
-  --color-bg-primary: #5e5877;
-  --color-bg-secondary: #6b6484;
-  --color-bg-card: #7f7a95;
-  --color-bg-card-hover: #8e89a4;
-  --color-accent: #a89ec8;
-  --color-accent-bright: #c4b8e8;
-  --color-text-primary: #f0eef5;
-  --color-text-secondary: #c5c0d6;
-  --color-text-muted: #9e98b3;
+  --color-bg-deep: #070b1a;
+  --color-bg-primary: #0c1228;
+  --color-bg-secondary: #111a3a;
+  --color-bg-card: rgba(255, 255, 255, 0.04);
+  --color-bg-card-hover: rgba(255, 255, 255, 0.08);
+  --color-bg-glass: rgba(255, 255, 255, 0.03);
+  --color-accent: #c9b87a;
+  --color-accent-bright: #e8d9a0;
+  --color-accent-glow: rgba(201, 184, 122, 0.3);
+  --color-moon: #f5ecd0;
+  --color-star: #d4cfff;
+  --color-text-primary: #e8e6f0;
+  --color-text-secondary: #9a96b8;
+  --color-text-muted: #5e5a7a;
+  --color-border: rgba(255, 255, 255, 0.06);
+  --color-border-accent: rgba(201, 184, 122, 0.2);
 }
 
 html {
@@ -21,10 +28,380 @@ html {
 
 body {
   font-family: "Noto Sans KR", sans-serif;
-  background-color: var(--color-bg-primary);
+  background-color: var(--color-bg-deep);
   color: var(--color-text-primary);
+  overflow-x: hidden;
 }
 
 .font-display {
-  font-family: "Gruppo", sans-serif;
+  font-family: "Cormorant Garamond", serif;
+}
+
+/* Mobile-only container */
+.mobile-frame {
+  max-width: 430px;
+  margin: 0 auto;
+  position: relative;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ============================================
+   STARFIELD & CELESTIAL ANIMATIONS
+   ============================================ */
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.15; }
+  50% { opacity: 1; }
+}
+
+@keyframes twinkle-slow {
+  0%, 100% { opacity: 0.08; }
+  50% { opacity: 0.6; }
+}
+
+@keyframes twinkle-fast {
+  0%, 100% { opacity: 0.1; }
+  30% { opacity: 0.9; }
+  60% { opacity: 0.3; }
+}
+
+@keyframes shooting-star {
+  0% {
+    transform: translateX(0) translateY(0) rotate(-45deg);
+    opacity: 1;
+    width: 0;
+  }
+  30% {
+    opacity: 1;
+    width: 80px;
+  }
+  100% {
+    transform: translateX(-200px) translateY(200px) rotate(-45deg);
+    opacity: 0;
+    width: 120px;
+  }
+}
+
+@keyframes float-up {
+  0% { transform: translateY(0); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translateY(-100vh); opacity: 0; }
+}
+
+@keyframes glow-pulse {
+  0%, 100% { filter: blur(20px) brightness(0.8); }
+  50% { filter: blur(25px) brightness(1.2); }
+}
+
+@keyframes moon-glow {
+  0%, 100% {
+    box-shadow:
+      0 0 40px rgba(245, 236, 208, 0.12),
+      0 0 80px rgba(245, 236, 208, 0.06),
+      0 0 120px rgba(201, 184, 122, 0.04);
+  }
+  50% {
+    box-shadow:
+      0 0 60px rgba(245, 236, 208, 0.2),
+      0 0 120px rgba(245, 236, 208, 0.1),
+      0 0 180px rgba(201, 184, 122, 0.06);
+  }
+}
+
+@keyframes moon-glow-large {
+  0%, 100% {
+    box-shadow:
+      0 0 60px rgba(245, 236, 208, 0.15),
+      0 0 120px rgba(245, 236, 208, 0.08),
+      0 0 200px rgba(201, 184, 122, 0.05);
+  }
+  50% {
+    box-shadow:
+      0 0 80px rgba(245, 236, 208, 0.25),
+      0 0 160px rgba(245, 236, 208, 0.12),
+      0 0 260px rgba(201, 184, 122, 0.08);
+  }
+}
+
+/* ============================================
+   ENTRANCE & REVEAL ANIMATIONS
+   ============================================ */
+
+@keyframes fade-in-up {
+  0% { opacity: 0; transform: translateY(28px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fade-in {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes fade-in-scale {
+  0% { opacity: 0; transform: scale(0.92); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes slide-in-right {
+  0% { opacity: 0; transform: translateX(20px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slide-in-left {
+  0% { opacity: 0; transform: translateX(-20px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes letter-spread {
+  0% { letter-spacing: 0.05em; opacity: 0; }
+  100% { letter-spacing: 0.2em; opacity: 1; }
+}
+
+@keyframes scroll-hint {
+  0%, 100% { opacity: 0.4; transform: translateY(0); }
+  50% { opacity: 0.8; transform: translateY(6px); }
+}
+
+/* ============================================
+   SHIMMER & GLOW EFFECTS
+   ============================================ */
+
+@keyframes shimmer-border {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+@keyframes pulse-soft {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+@keyframes border-glow {
+  0%, 100% { border-color: rgba(201, 184, 122, 0.15); }
+  50% { border-color: rgba(201, 184, 122, 0.35); }
+}
+
+/* ============================================
+   UTILITY ANIMATION CLASSES
+   ============================================ */
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.8s ease-out both;
+}
+
+.animate-fade-in {
+  animation: fade-in 1s ease-out both;
+}
+
+.animate-fade-in-scale {
+  animation: fade-in-scale 0.7s ease-out both;
+}
+
+.animate-slide-in-right {
+  animation: slide-in-right 0.6s ease-out both;
+}
+
+.animate-slide-in-left {
+  animation: slide-in-left 0.6s ease-out both;
+}
+
+.animate-letter-spread {
+  animation: letter-spread 1.2s ease-out both;
+}
+
+.animate-scroll-hint {
+  animation: scroll-hint 2s ease-in-out infinite;
+}
+
+/* ============================================
+   STAR PARTICLES
+   ============================================ */
+
+.star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: var(--color-star);
+  border-radius: 50%;
+  animation: twinkle var(--duration, 3s) ease-in-out infinite;
+  animation-delay: var(--delay, 0s);
+}
+
+.star-bright {
+  width: 3px;
+  height: 3px;
+  background: var(--color-moon);
+  box-shadow: 0 0 6px rgba(245, 236, 208, 0.4), 0 0 12px rgba(212, 207, 255, 0.2);
+  animation-name: twinkle-slow;
+}
+
+.star-tiny {
+  width: 1px;
+  height: 1px;
+  opacity: 0.4;
+  animation-name: twinkle-fast;
+}
+
+.shooting-star {
+  position: absolute;
+  height: 1px;
+  background: linear-gradient(to right, rgba(245, 236, 208, 0.8), transparent);
+  border-radius: 100px;
+  animation: shooting-star 1.5s ease-out forwards;
+}
+
+/* ============================================
+   SCROLLBAR & TAB STYLING
+   ============================================ */
+
+.tab-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.tab-scroll {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* ============================================
+   GLASS MORPHISM
+   ============================================ */
+
+.glass {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.glass-accent {
+  background: linear-gradient(135deg, rgba(201, 184, 122, 0.04), rgba(255, 255, 255, 0.02));
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(201, 184, 122, 0.12);
+}
+
+/* ============================================
+   MOON ORB
+   ============================================ */
+
+.moon-orb {
+  background: radial-gradient(
+    circle at 35% 35%,
+    #f5ecd0 0%,
+    #e8d9a0 30%,
+    #c9b87a 55%,
+    rgba(201, 184, 122, 0.3) 75%,
+    rgba(201, 184, 122, 0) 100%
+  );
+  animation: moon-glow 4s ease-in-out infinite;
+  border-radius: 50%;
+}
+
+.moon-orb-hero {
+  background: radial-gradient(
+    circle at 38% 38%,
+    rgba(245, 236, 208, 0.9) 0%,
+    rgba(232, 217, 160, 0.6) 25%,
+    rgba(201, 184, 122, 0.3) 50%,
+    rgba(201, 184, 122, 0.08) 75%,
+    transparent 100%
+  );
+  animation: moon-glow-large 5s ease-in-out infinite;
+  border-radius: 50%;
+}
+
+/* ============================================
+   CARD SHIMMER BORDER EFFECT
+   ============================================ */
+
+.shimmer-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.shimmer-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(201, 184, 122, 0.3) 50%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer-border 4s ease-in-out infinite;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  pointer-events: none;
+}
+
+/* ============================================
+   NOISE TEXTURE OVERLAY
+   ============================================ */
+
+.noise-overlay::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.018;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+  z-index: 9999;
+}
+
+/* ============================================
+   GRADIENT MESH BACKGROUND
+   ============================================ */
+
+.bg-mesh {
+  background:
+    radial-gradient(ellipse at 20% 0%, rgba(30, 27, 75, 0.5) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 15%, rgba(59, 34, 92, 0.3) 0%, transparent 45%),
+    radial-gradient(ellipse at 50% 50%, rgba(25, 20, 60, 0.4) 0%, transparent 55%),
+    radial-gradient(ellipse at 10% 80%, rgba(17, 24, 58, 0.6) 0%, transparent 50%),
+    radial-gradient(ellipse at 90% 70%, rgba(40, 20, 70, 0.2) 0%, transparent 40%),
+    var(--color-bg-deep);
+}
+
+/* ============================================
+   SECTION DIVIDER
+   ============================================ */
+
+.section-divider {
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(201, 184, 122, 0.15) 20%,
+    rgba(201, 184, 122, 0.25) 50%,
+    rgba(201, 184, 122, 0.15) 80%,
+    transparent 100%
+  );
+}
+
+/* ============================================
+   HOVER GLOW CARD
+   ============================================ */
+
+.hover-glow {
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.hover-glow:hover {
+  box-shadow:
+    0 0 0 1px rgba(201, 184, 122, 0.15),
+    0 4px 20px rgba(0, 0, 0, 0.3),
+    0 0 40px rgba(201, 184, 122, 0.06);
+  transform: translateY(-1px);
 }

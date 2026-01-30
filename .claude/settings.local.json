@@ -7,7 +7,20 @@
       "Bash(npm:*)",
       "Bash(node --version)",
       "Bash(npm.cmd:*)",
-      "Bash(npx.cmd next build:*)"
+      "Bash(npx.cmd next build:*)",
+      "Bash(npx next dev:*)",
+      "Bash(netstat:*)",
+      "Bash(findstr:*)",
+      "WebFetch(domain:developer.chrome.com)",
+      "WebFetch(domain:github.com)",
+      "mcp__chrome-devtools__evaluate_script",
+      "mcp__chrome-devtools__hover",
+      "mcp__chrome-devtools__resize_page",
+      "Bash(npx next build)",
+      "Bash(echo:*)",
+      "Bash(npx tsc:*)",
+      "Bash(npx next lint)",
+      "Bash(claude mcp add:*)"
     ]
   }
 }
