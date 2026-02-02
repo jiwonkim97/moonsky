@@ -12,7 +12,6 @@ export default function Contact() {
           <p className="font-display text-[11px] tracking-[0.3em] text-accent/90 mb-2.5 uppercase">
             Contact
           </p>
-          <h2 className="text-[1.6rem] font-bold mb-3.5">연락하기</h2>
           <div className="flex items-center gap-2">
             <div className="w-8 h-px bg-accent/40" />
             <div className="w-1 h-1 rounded-full bg-accent/30" />
