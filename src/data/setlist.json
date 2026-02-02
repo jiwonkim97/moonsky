@@ -2,46 +2,127 @@
   {
     "order": 1,
     "title": "잘부탁드립니다",
-    "artist": "익스 (Ex)"
+    "artist": "익스 (Ex)",
+    "members": {
+      "vocal": "윤우진",
+      "guitar1": "박성준",
+      "guitar2": "",
+      "bass": "장민욱",
+      "keyboard": "김지원",
+      "synth": "김보균",
+      "drum": "김태윤"
+    }
   },
   {
     "order": 2,
     "title": "스물다섯 스물하나",
-    "artist": "자우림"
+    "artist": "자우림",
+    "members": {
+      "vocal": "윤우진",
+      "guitar1": "박성준",
+      "guitar2": "",
+      "bass": "장민욱",
+      "keyboard": "김지원",
+      "synth": "김보균",
+      "drum": "김태윤"
+    }
   },
   {
     "order": 3,
     "title": "숲",
-    "artist": "최유리"
+    "artist": "최유리",
+    "members": {
+      "vocal": "김보균",
+      "guitar1": "윤우진",
+      "guitar2": "",
+      "bass": "장민욱",
+      "keyboard": "김지원",
+      "synth": "",
+      "drum": "김태윤"
+    }
   },
   {
     "order": 4,
     "title": "나의 사춘기에게",
-    "artist": "볼빨간사춘기"
+    "artist": "볼빨간사춘기",
+    "members": {
+      "vocal": "윤우진",
+      "guitar1": "박성준",
+      "guitar2": "",
+      "bass": "장민욱",
+      "keyboard": "김지원",
+      "synth": "김화윤",
+      "drum": "김태윤"
+    }
   },
   {
     "order": 5,
     "title": "사랑을 전하고 싶다든가",
-    "artist": "아이묭"
+    "artist": "아이묭",
+    "members": {
+      "vocal": "김보균",
+      "guitar1": "박성준",
+      "guitar2": "",
+      "bass": "김지원",
+      "keyboard": "윤우진",
+      "synth": "",
+      "drum": "김태윤"
+    }
   },
   {
     "order": 6,
     "title": "친애하는 소년이여",
-    "artist": "Hump Back"
+    "artist": "Hump Back",
+    "members": {
+      "vocal": "김보균",
+      "guitar1": "박성준",
+      "guitar2": "",
+      "bass": "장민욱",
+      "keyboard": "",
+      "synth": "",
+      "drum": "김태윤"
+    }
   },
   {
     "order": 7,
     "title": "만찬가",
-    "artist": "tuki."
+    "artist": "tuki.",
+    "members": {
+      "vocal": "김화윤",
+      "guitar1": "박성준",
+      "guitar2": "",
+      "bass": "",
+      "keyboard": "김지원",
+      "synth": "",
+      "drum": ""
+    }
   },
   {
     "order": 8,
     "title": "나에게로 떠나는 여행",
-    "artist": "PLAY THAT K-POP"
+    "artist": "PLAY THAT K-POP",
+    "members": {
+      "vocal": "김보균",
+      "guitar1": "박성준",
+      "guitar2": "",
+      "bass": "장민욱",
+      "keyboard": "김지원",
+      "synth": "",
+      "drum": "김태윤"
+    }
   },
   {
     "order": 9,
     "title": "사랑한다는말로도 위로가되지않는",
-    "artist": "유다빈밴드"
+    "artist": "유다빈밴드",
+    "members": {
+      "vocal": "김보균",
+      "guitar1": "박성준",
+      "guitar2": "윤우진",
+      "bass": "장민욱",
+      "keyboard": "김지원",
+      "synth": "김화윤",
+      "drum": "김태윤"
+    }
   }
 ]

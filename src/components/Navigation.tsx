@@ -4,7 +4,7 @@ import { useRef } from "react";
 import { motion } from "framer-motion";
 
 const NAV_ITEMS = [
-  { id: "profile", label: "PROFILE" },
+  { id: "profile", label: "HOME" },
   { id: "member", label: "MEMBER" },
   { id: "setlist", label: "SET LIST" },
   { id: "contact", label: "CONTACT" },

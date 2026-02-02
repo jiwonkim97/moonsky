@@ -1,0 +1,20 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="32" height="32" rx="6" fill="#070b1a"/>
+  <defs>
+    <radialGradient id="fav-moon" cx="0.3" cy="0.3" r="0.8">
+      <stop offset="0%" stop-color="#f0e4b8"/>
+      <stop offset="50%" stop-color="#d4c48a"/>
+      <stop offset="100%" stop-color="#b8a46a"/>
+    </radialGradient>
+    <radialGradient id="fav-star" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%" stop-color="#f5edd5"/>
+      <stop offset="100%" stop-color="#c9b87a" stop-opacity="0.6"/>
+    </radialGradient>
+  </defs>
+  <circle cx="13" cy="17" r="9" fill="url(#fav-moon)"/>
+  <circle cx="18.5" cy="14" r="7.5" fill="#070b1a"/>
+  <g transform="translate(24, 9)">
+    <path d="M0 -3C0.4 -0.8 0.8 -0.4 3 0C0.8 0.4 0.4 0.8 0 3C-0.4 0.8 -0.8 0.4 -3 0C-0.8 -0.4 -0.4 -0.8 0 -3Z" fill="url(#fav-star)"/>
+  </g>
+  <circle cx="20" cy="6" r="0.8" fill="#c9b87a" opacity="0.5"/>
+</svg>

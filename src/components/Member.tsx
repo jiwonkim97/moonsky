@@ -39,14 +39,14 @@ function getPartColor(part: string): string {
 
 export default function Member() {
   const firstHalf = membersData.slice(0, 4);
-  const secondHalf = membersData.slice(4, 8);
+  const secondHalf = membersData.slice(4);
 
   return (
     <section className="py-20 px-6">
       <div className="max-w-lg mx-auto">
         {/* Section Header */}
         <FadeIn direction="up" className="mb-12">
-          <p className="font-display text-[11px] tracking-[0.3em] text-accent/70 mb-2.5 uppercase">
+          <p className="font-display text-[11px] tracking-[0.3em] text-accent/90 mb-2.5 uppercase">
             Our Members
           </p>
           <h2 className="text-[1.6rem] font-bold mb-3.5">구성원 소개</h2>
@@ -88,6 +88,19 @@ export default function Member() {
               <MemberCard member={member} />
             </StaggerItem>
           ))}
+
+          {/* Empty member slot */}
+          <StaggerItem direction="scale">
+            <div className="relative aspect-square rounded-2xl overflow-hidden border border-border">
+              <img
+                src="/images/members/멤버빈칸.jpg"
+                alt=""
+                loading="lazy"
+                decoding="async"
+                className="absolute inset-0 w-full h-full object-cover"
+              />
+            </div>
+          </StaggerItem>
         </StaggerContainer>
       </div>
     </section>
@@ -119,7 +132,16 @@ function MemberCard({
       }}
       whileTap={{ scale: 0.97 }}
     >
-      {/* Subtle part-colored background */}
+      {/* Member photo */}
+      <img
+        src={member.image}
+        alt={member.name}
+        loading="lazy"
+        decoding="async"
+        className="absolute inset-0 w-full h-full object-cover"
+      />
+
+      {/* Subtle part-colored overlay on hover */}
       <div
         className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
         style={{
@@ -127,19 +149,12 @@ function MemberCard({
         }}
       />
 
-      {/* Photo placeholder area */}
-      <div className="absolute inset-0 flex items-center justify-center">
-        <span className="text-3xl opacity-15 group-hover:opacity-40 group-hover:scale-110 transition-all duration-400">
-          {icon}
-        </span>
-      </div>
-
       {/* Info overlay at bottom */}
       <div className="absolute bottom-0 left-0 right-0 p-2.5 bg-gradient-to-t from-bg-deep/95 via-bg-deep/70 to-transparent pt-10">
         <p className="text-[11px] font-bold text-text-primary leading-tight">
           {member.name}
         </p>
-        <p className="text-[9px] text-accent/70 mt-0.5 font-light tracking-wide">
+        <p className="text-[9px] text-accent/90 mt-0.5 font-light tracking-wide">
           {partName}
         </p>
       </div>

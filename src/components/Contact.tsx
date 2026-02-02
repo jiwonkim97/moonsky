@@ -9,7 +9,7 @@ export default function Contact() {
       <div className="max-w-lg mx-auto">
         {/* Section Header */}
         <FadeIn direction="up" className="mb-12">
-          <p className="font-display text-[11px] tracking-[0.3em] text-accent/70 mb-2.5 uppercase">
+          <p className="font-display text-[11px] tracking-[0.3em] text-accent/90 mb-2.5 uppercase">
             Contact
           </p>
           <h2 className="text-[1.6rem] font-bold mb-3.5">연락하기</h2>
@@ -19,7 +19,7 @@ export default function Contact() {
           </div>
         </FadeIn>
 
-        {/* Instagram Card */}
+        {/* Email Card */}
         <FadeIn direction="up" delay={0.1}>
           <motion.div
             className="relative rounded-2xl border border-border overflow-hidden group"
@@ -43,7 +43,7 @@ export default function Contact() {
             />
 
             <div className="relative p-10 text-center">
-              {/* Instagram icon */}
+              {/* Email icon */}
               <motion.div
                 className="mb-6"
                 whileHover={{ scale: 1.08 }}
@@ -59,40 +59,59 @@ export default function Contact() {
                   >
                     <rect
                       x="2"
-                      y="2"
+                      y="4"
                       width="20"
-                      height="20"
-                      rx="5"
+                      height="16"
+                      rx="3"
                       stroke="currentColor"
                       strokeWidth="1.5"
                     />
-                    <circle
-                      cx="12"
-                      cy="12"
-                      r="5"
+                    <path
+                      d="M2 7l8.165 5.715a3 3 0 003.67 0L22 7"
                       stroke="currentColor"
                       strokeWidth="1.5"
+                      strokeLinecap="round"
                     />
-                    <circle cx="17.5" cy="6.5" r="1" fill="currentColor" />
                   </svg>
                 </div>
               </motion.div>
 
-              <p className="font-display text-[10px] tracking-[0.35em] text-text-muted uppercase mb-4">
-                Instagram
+              <p className="font-display text-[10px] tracking-[0.35em] text-text-secondary uppercase mb-4">
+                E-mail
               </p>
 
-              <p className="text-xl font-medium text-accent-bright mb-7 tracking-wide">
-                @moonsky_band
-              </p>
+              <a
+                href="mailto:bkkim0530@naver.com"
+                className="text-xl font-medium text-accent-bright mb-7 tracking-wide block hover:text-accent transition-colors duration-300"
+              >
+                bkkim0530@naver.com
+              </a>
 
               <div className="w-12 h-px bg-gradient-to-r from-transparent via-border-accent to-transparent mx-auto mb-7" />
 
-              <p className="text-text-muted text-[12px] leading-[1.8] font-light">
-                공연 문의 및 기타 연락은
+              <p className="text-text-secondary text-[12px] leading-[1.9] font-light">
+                공연 및 협업 관련 문의는
                 <br />
-                인스타그램 DM으로 부탁드립니다.
+                위 이메일로 연락 부탁드립니다.
               </p>
+
+              <div className="w-12 h-px bg-gradient-to-r from-transparent via-border-accent to-transparent mx-auto my-6" />
+
+              <div className="text-text-muted text-[11px] leading-[1.9] font-light space-y-2">
+                <p>
+                  밴드 달하늘은 현재 멤버 모집은
+                  <br />
+                  진행하지 않고 있습니다.
+                </p>
+                <p>
+                  공연, 행사, 기타 협업 제안에 한해
+                  <br />
+                  검토 후 회신드리고 있습니다.
+                </p>
+                <p className="text-accent/60 mt-3">
+                  보내주신 관심에 감사드립니다.
+                </p>
+              </div>
             </div>
           </motion.div>
         </FadeIn>

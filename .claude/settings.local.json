@@ -20,7 +20,15 @@
       "Bash(echo:*)",
       "Bash(npx tsc:*)",
       "Bash(npx next lint)",
-      "Bash(claude mcp add:*)"
+      "Bash(claude mcp add:*)",
+      "Bash(node -e:*)",
+      "mcp__chrome-devtools__close_page",
+      "mcp__chrome-devtools__emulate",
+      "WebFetch(domain:svgstud.io)",
+      "WebFetch(domain:thenounproject.com)",
+      "WebFetch(domain:www.vecteezy.com)",
+      "WebFetch(domain:www.pixtastock.com)",
+      "Bash(git status:*)"
     ]
   }
 }

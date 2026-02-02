@@ -12,7 +12,7 @@ export default function SetList() {
       <div className="max-w-lg mx-auto">
         {/* Section Header */}
         <FadeIn direction="up" className="mb-12">
-          <p className="font-display text-[11px] tracking-[0.3em] text-accent/70 mb-2.5 uppercase">
+          <p className="font-display text-[11px] tracking-[0.3em] text-accent/90 mb-2.5 uppercase">
             Set List
           </p>
           <h2 className="text-[1.6rem] font-bold mb-3.5">공연 곡 목록</h2>
@@ -35,10 +35,21 @@ export default function SetList() {
   );
 }
 
-function SongCard({ song }: { song: { order: number; title: string; artist: string } }) {
+const PART_LABELS: Record<string, string> = {
+  vocal: "Vo",
+  guitar1: "Gt",
+  guitar2: "Gt",
+  bass: "Ba",
+  keyboard: "Key",
+  synth: "Syn",
+  drum: "Dr",
+};
+
+function SongCard({ song }: { song: { order: number; title: string; artist: string; members: Record<string, string> } }) {
+  const activeMembers = Object.entries(song.members).filter(([, name]) => name !== "");
   return (
     <motion.div
-      className="group relative flex items-center gap-4 rounded-2xl px-5 py-[18px] border border-border bg-bg-card/40 overflow-hidden"
+      className="group relative rounded-2xl px-5 py-[18px] border border-border bg-bg-card/40 overflow-hidden"
       whileHover={{
         y: -2,
         boxShadow: "0 0 0 1px rgba(201, 184, 122, 0.18), 0 6px 24px rgba(0,0,0,0.25), 0 0 40px rgba(201, 184, 122, 0.05)",
@@ -51,41 +62,55 @@ function SongCard({ song }: { song: { order: number; title: string; artist: stri
       {/* Hover accent line */}
       <div className="absolute left-0 top-0 bottom-0 w-[2px] bg-accent/0 group-hover:bg-accent/50 transition-all duration-400 rounded-full" />
 
-      {/* Number */}
-      <span className="font-display text-[1.4rem] font-light text-accent/30 group-hover:text-accent/60 w-8 text-right tabular-nums transition-colors duration-400">
-        {String(song.order).padStart(2, "0")}
-      </span>
+      <div className="flex items-center gap-4">
+        {/* Number */}
+        <span className="font-display text-[1.4rem] font-light text-accent/50 group-hover:text-accent/70 w-8 text-right tabular-nums transition-colors duration-400">
+          {String(song.order).padStart(2, "0")}
+        </span>
 
-      {/* Divider */}
-      <div className="w-px h-8 bg-border group-hover:bg-border-accent/30 transition-colors duration-400" />
+        {/* Divider */}
+        <div className="w-px h-8 bg-border group-hover:bg-border-accent/30 transition-colors duration-400" />
 
-      {/* Song info */}
-      <div className="flex-1 min-w-0">
-        <p className="text-[13px] font-medium text-text-primary truncate group-hover:text-accent-bright transition-colors duration-300">
-          {song.title}
-        </p>
-        <p className="text-[11px] text-text-muted mt-1 truncate font-light">
-          {song.artist}
-        </p>
+        {/* Song info */}
+        <div className="flex-1 min-w-0">
+          <p className="text-[13px] font-medium text-text-primary truncate group-hover:text-accent-bright transition-colors duration-300">
+            {song.title}
+          </p>
+          <p className="text-[11px] text-text-secondary mt-1 truncate font-light">
+            {song.artist}
+          </p>
+        </div>
+
+        {/* Play icon hint */}
+        <motion.div
+          className="text-accent/50"
+          initial={{ opacity: 0, x: 4 }}
+          whileHover={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.2 }}
+        >
+          <svg
+            width="14"
+            height="14"
+            viewBox="0 0 24 24"
+            fill="none"
+            className="opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+          >
+            <path d="M8 5v14l11-7L8 5z" fill="currentColor" />
+          </svg>
+        </motion.div>
       </div>
 
-      {/* Play icon hint */}
-      <motion.div
-        className="text-accent/50"
-        initial={{ opacity: 0, x: 4 }}
-        whileHover={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.2 }}
-      >
-        <svg
-          width="14"
-          height="14"
-          viewBox="0 0 24 24"
-          fill="none"
-          className="opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-        >
-          <path d="M8 5v14l11-7L8 5z" fill="currentColor" />
-        </svg>
-      </motion.div>
+      {/* Members */}
+      <div className="flex flex-wrap gap-1.5 mt-3 ml-[52px]">
+        {activeMembers.map(([part, name]) => (
+          <span
+            key={part}
+            className="text-[10px] text-text-muted px-2 py-0.5 rounded-full border border-border bg-bg-card/60"
+          >
+            <span className="text-accent/60">{PART_LABELS[part]}</span>{" "}{name}
+          </span>
+        ))}
+      </div>
     </motion.div>
   );
 }
