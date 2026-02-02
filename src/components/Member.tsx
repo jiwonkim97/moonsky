@@ -150,7 +150,7 @@ function MemberCard({
       />
 
       {/* Info overlay at bottom */}
-      <div className="absolute bottom-0 left-0 right-0 p-2.5 bg-gradient-to-t from-bg-deep/95 via-bg-deep/70 to-transparent pt-10">
+      <div className="absolute bottom-0 left-0 right-0 p-2.5 bg-gradient-to-t from-bg-deep/70 via-bg-deep/40 to-transparent pt-10">
         <p className="text-[11px] font-bold text-text-primary leading-tight">
           {member.name}
         </p>

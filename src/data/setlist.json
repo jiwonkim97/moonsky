@@ -29,20 +29,6 @@
   },
   {
     "order": 3,
-    "title": "숲",
-    "artist": "최유리",
-    "members": {
-      "vocal": "김보균",
-      "guitar1": "윤우진",
-      "guitar2": "",
-      "bass": "장민욱",
-      "keyboard": "김지원",
-      "synth": "",
-      "drum": "김태윤"
-    }
-  },
-  {
-    "order": 4,
     "title": "나의 사춘기에게",
     "artist": "볼빨간사춘기",
     "members": {
@@ -52,6 +38,20 @@
       "bass": "장민욱",
       "keyboard": "김지원",
       "synth": "김화윤",
+      "drum": "김태윤"
+    }
+  },
+  {
+    "order": 4,
+    "title": "숲",
+    "artist": "최유리",
+    "members": {
+      "vocal": "김보균",
+      "guitar1": "윤우진",
+      "guitar2": "",
+      "bass": "장민욱",
+      "keyboard": "김지원",
+      "synth": "",
       "drum": "김태윤"
     }
   },
