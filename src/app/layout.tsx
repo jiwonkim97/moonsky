@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description: "직장인밴드 달하늘 공연 페이지",
   openGraph: {
     title: "첫 번째 공연에 초대합니다.",
-    description: "달하늘 MOONSKY | 2026. 02. 15 (일) 17:00 펄스 라이브홀",
+    description: "달하늘 MOONSKY | 2026. 02. 15 (일) 17:30 펄스 라이브홀",
   },
 };
 
