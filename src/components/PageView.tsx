@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
+import { useSearchParams } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
 import Navigation from "./Navigation";
 import Profile from "./Profile";
@@ -60,8 +61,17 @@ function SectionContent({ tab }: { tab: TabId }) {
 }
 
 export default function PageView() {
+  const searchParams = useSearchParams();
   const [activeTab, setActiveTab] = useState<TabId>("profile");
   const [direction, setDirection] = useState(0);
+
+  // URL 쿼리 파라미터로 초기 탭 설정
+  useEffect(() => {
+    const pathParam = searchParams.get("path");
+    if (pathParam && TABS.includes(pathParam as TabId)) {
+      setActiveTab(pathParam as TabId);
+    }
+  }, [searchParams]);
 
   const handleTabChange = useCallback(
     (id: string) => {

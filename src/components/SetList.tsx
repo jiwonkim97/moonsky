@@ -6,7 +6,18 @@ import StaggerContainer from "./motion/StaggerContainer";
 import StaggerItem from "./motion/StaggerItem";
 import setlistData from "@/data/setlist.json";
 
+type SetListItem = {
+  order: number;
+  title: string;
+  artist: string;
+  members: Record<string, string>;
+  type?: string;
+};
+
 export default function SetList() {
+  // 곡만 필터링해서 실제 곡 번호 계산
+  let songNumber = 0;
+  
   return (
     <section className="py-20 px-6">
       <div className="max-w-lg mx-auto">
@@ -24,11 +35,20 @@ export default function SetList() {
 
         {/* Song List */}
         <StaggerContainer stagger={0.06} className="flex flex-col gap-2.5">
-          {setlistData.map((song) => (
-            <StaggerItem key={song.order} direction="up" distance={20}>
-              <SongCard song={song} />
-            </StaggerItem>
-          ))}
+          {(setlistData as SetListItem[]).map((item) => {
+            const isSong = item.type !== "event";
+            if (isSong) songNumber++;
+            
+            return (
+              <StaggerItem key={item.order} direction="up" distance={20}>
+                {item.type === "event" ? (
+                  <EventCard event={item} />
+                ) : (
+                  <SongCard song={item} songNumber={songNumber} />
+                )}
+              </StaggerItem>
+            );
+          })}
         </StaggerContainer>
       </div>
     </section>
@@ -45,7 +65,29 @@ const PART_LABELS: Record<string, string> = {
   drum: "Dr",
 };
 
-function SongCard({ song }: { song: { order: number; title: string; artist: string; members: Record<string, string> } }) {
+function EventCard({ event }: { event: { title: string } }) {
+  return (
+    <motion.div
+      className="relative rounded-2xl px-5 py-[18px] border-2 border-dashed border-accent/20 bg-accent/5 overflow-hidden"
+      whileHover={{
+        y: -1,
+        borderColor: "rgba(201, 184, 122, 0.35)",
+        backgroundColor: "rgba(201, 184, 122, 0.08)",
+        transition: { type: "spring", stiffness: 400, damping: 25 },
+      }}
+    >
+      {/* Event info - no number */}
+      <div className="flex items-center justify-center gap-3">
+        <span className="text-[16px]">✨</span>
+        <p className="text-[13px] font-medium text-accent-bright tracking-wide">
+          {event.title}
+        </p>
+      </div>
+    </motion.div>
+  );
+}
+
+function SongCard({ song, songNumber }: { song: { title: string; artist: string; members: Record<string, string> }; songNumber: number }) {
   const activeMembers = Object.entries(song.members).filter(([, name]) => name !== "");
   return (
     <motion.div
@@ -65,7 +107,7 @@ function SongCard({ song }: { song: { order: number; title: string; artist: stri
       <div className="flex items-center gap-4">
         {/* Number */}
         <span className="font-display text-[1.4rem] font-light text-accent/50 group-hover:text-accent/70 w-8 text-right tabular-nums transition-colors duration-400">
-          {String(song.order).padStart(2, "0")}
+          {String(songNumber).padStart(2, "0")}
         </span>
 
         {/* Divider */}

@@ -71,6 +71,13 @@
   },
   {
     "order": 6,
+    "type": "event",
+    "title": "이벤트",
+    "artist": "",
+    "members": {}
+  },
+  {
+    "order": 7,
     "title": "친애하는 소년이여",
     "artist": "Hump Back",
     "members": {
@@ -84,7 +91,7 @@
     }
   },
   {
-    "order": 7,
+    "order": 8,
     "title": "만찬가",
     "artist": "tuki.",
     "members": {
@@ -98,7 +105,7 @@
     }
   },
   {
-    "order": 8,
+    "order": 9,
     "title": "나에게로 떠나는 여행",
     "artist": "PLAY THAT K-POP",
     "members": {
@@ -112,7 +119,7 @@
     }
   },
   {
-    "order": 9,
+    "order": 10,
     "title": "사랑한다는말로도 위로가되지않는",
     "artist": "유다빈밴드",
     "members": {
