@@ -67,9 +67,9 @@ export default function PageView() {
 
   // URL 쿼리 파라미터로 초기 탭 설정
   useEffect(() => {
-    const pathParam = searchParams.get("path");
-    if (pathParam && TABS.includes(pathParam as TabId)) {
-      setActiveTab(pathParam as TabId);
+    const routeParam = searchParams.get("route");
+    if (routeParam && TABS.includes(routeParam as TabId)) {
+      setActiveTab(routeParam as TabId);
     }
   }, [searchParams]);
 
